@@ -13,15 +13,18 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "members#index"
+  resources :members do
+    resources :memberships
+  end
 
-  get "/members", to: "members#index"
-  get "/members/:id", to: "members#show"
-  get "/members/:id/edit", to: "members#edit"
-  get "/members/new", to: "members#new"
-
-  post "/members", to: "members#create"
-
-  patch "/members/:id", to: "members#update"
-
-  delete "/members/:id", to: "members#destroy"
+  # get "/members", to: "members#index"
+  # get "/members/:id", to: "members#show"
+  # get "/members/:id/edit", to: "members#edit"
+  # get "/members/new", to: "members#new"
+  #
+  # post "/members", to: "members#create"
+  #
+  # patch "/members/:id", to: "members#update"
+  #
+  # delete "/members/:id", to: "members#destroy"
 end

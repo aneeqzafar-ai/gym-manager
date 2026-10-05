@@ -1,0 +1,25 @@
+<%= form_with model: [member,membership] do |form| %>
+
+  <% if form.object.errors.any? %>
+    <p class="error"><%= form.object.errors.full_messages.first %></p>
+  <% end %>
+
+  <div>
+    <%= form.label :start_date%>
+    <%= form.text_field :start_date%>
+  </div>
+
+  <div>
+    <%= form.label :end_date%>
+    <%= form.text_field :end_date%>
+  </div>
+
+  <div>
+    <%= form.label :amount%>
+    <%= form.text_field :amount%>
+  </div>
+
+  <div>
+    <%= form.submit%>
+  </div>
+<% end %>

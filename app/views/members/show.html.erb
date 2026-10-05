@@ -1,0 +1,30 @@
+<h1><%= @member.name %></h1>
+
+<h2>Memberships</h2>
+
+
+<% if @member.memberships.any? %>
+  <% @member.memberships.each do |membership| %>
+    <p>
+      Start Date: <%= membership.start_date %> ,
+      End Date: <%= membership.end_date %> ,
+      Amount Paid: <%= membership.amount %>
+    </p>
+    <p>    </p>
+    <button>
+      <%= link_to "Edit Membership",  edit_member_membership_path(@member,membership)%>
+    </button>
+  <% end %>
+<% else %>
+  <p>No memberships as of yet</p>
+<% end %>
+
+
+
+<button>
+  <%= link_to "Add Membership",  new_member_membership_path(@member)%>
+</button>
+<div>
+  <%= link_to "Back",  members_path%>
+  <%= link_to "Edit",  edit_member_path(@member)%>
+</div>

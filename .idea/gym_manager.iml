@@ -248,6 +248,7 @@
     </entry>
     <entry key="test/mailers/previews">
       <value>file://$MODULE_DIR$/test/mailers/previews</value>
+      <value>file:///home/zafar/Gym-Management-System/gym_manager/spec/mailers/previews</value>
       <value>file:///home/zafar/Gym-Management-System/gym_manager/test/mailers/previews</value>
     </entry>
     <entry key="tmp">
