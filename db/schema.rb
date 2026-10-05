@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_05_080236) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_05_141045) do
+  create_table "class_enrollments", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "gym_class_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_class_id"], name: "index_class_enrollments_on_gym_class_id"
+    t.index ["member_id"], name: "index_class_enrollments_on_member_id"
+  end
+
+  create_table "gym_classes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -47,6 +62,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_05_080236) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "class_enrollments", "gym_classes"
+  add_foreign_key "class_enrollments", "members"
   add_foreign_key "memberships", "members"
   add_foreign_key "sessions", "users"
 end
